@@ -1,38 +1,57 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* General styles */
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  color: #333;
+  margin: 0;
+  padding: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Container for the message display */
+#message-container {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 40px 60px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  min-width: 300px;
+  width: 100%;
+  text-align: center;
+  transition: all 0.3s ease;
+  overflow: hidden; /* Ensures content stays within the container */
+  word-wrap: break-word; /* Breaks long words to keep them within the container */
+}
+
+/* Message styles */
+#message {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  color: #333;
+  transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* Countdown styles */
+#countdown {
+  font-size: 2.5rem;
+  color: #666;
+  margin-top: 10px;
 }
