@@ -8,7 +8,8 @@ function App() {
   const ws = useRef(null);
 
   useEffect(() => {
-    ws.current = new WebSocket("ws://localhost:5000");
+    ws.current = new WebSocket(process.env.REACT_APP_WEBSOCKET_URL);
+
     ws.current.onopen = () => {
       console.log("WebSocket connection established");
     };
