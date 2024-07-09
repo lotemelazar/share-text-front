@@ -1,14 +1,13 @@
 /* General styles */
 body {
   font-family: "Roboto", Arial, sans-serif;
-  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-  color: #333;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  transition: background 0.3s, color 0.3s;
 }
 
 .App {
@@ -17,15 +16,55 @@ body {
   align-items: center;
   height: 100%;
   width: 100%;
+  flex-direction: column;
+  position: relative;
+}
+
+.toggle-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.light-mode {
+  --background-color: linear-gradient(
+    135deg,
+    #f5f7fa,
+    #c3cfe2
+  ); /* Light gradient background */
+  --text-color: #333; /* Dark text color */
+  --container-bg-color: #ffffff; /* Light background color */
+  --container-border-color: #e0e0e0;
+}
+
+.dark-mode {
+  --background-color: linear-gradient(
+    135deg,
+    #2e2e2e,
+    #3a3a3a
+  ); /* Dark gradient background */
+  --text-color: #ffffff; /* White text color */
+  --container-bg-color: #444444; /* Dark background color */
+  --container-border-color: #555555;
+}
+
+body.light-mode {
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+body.dark-mode {
+  background: var(--background-color);
+  color: var(--text-color);
 }
 
 /* Container for the message display */
 #message-container {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
+  background-color: var(--container-bg-color);
+  border: 1px solid var(--container-border-color);
   border-radius: 12px;
   padding: 40px 60px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   max-width: 700px;
   min-width: 300px;
   width: 100%;
@@ -40,8 +79,8 @@ body {
   font-size: 3rem;
   font-weight: 500;
   margin-bottom: 20px;
-  color: #333;
   transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+  text-align: inherit; /* Inherit the text alignment based on direction */
 }
 
 .hidden {
@@ -52,6 +91,5 @@ body {
 /* Countdown styles */
 #countdown {
   font-size: 2.5rem;
-  color: #666;
   margin-top: 10px;
 }
